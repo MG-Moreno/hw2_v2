@@ -295,11 +295,11 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 warner_movies = Movie.where({"studio_id" => warner["id"]})
 for movie in warner_movies
-    title = movie["title"]
+    title = movie["title"].ljust(25)
     year = movie["year_released"]
-    rated = movie["rated"]
-    studio = warner["name"]
-    puts "#{title} #{year} #{rated} #{studio}"
+    rated = movie["rated"].ljust(10)
+    studio = warner["name"].ljust(10)
+    puts "#{title} #{year}    #{rated} #{studio}"
 end
 # TODO!
 
@@ -312,28 +312,28 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 cast_1 = Role.where({"movie_id" => movie_Batman1["id"]})
 for cast in cast_1
-    title = movie_Batman1["title"]
+    title = movie_Batman1["title"].ljust(30)
     actor_movie = Actor.find_by({"id" => cast["actor_id"]})
-    actor_name = actor_movie["name"]
-    character = cast["character_name"]
+    actor_name = actor_movie["name"].ljust(30)
+    character = cast["character_name"].ljust(30)
     puts "#{title} #{actor_name} #{character}"
 end
 
 cast_2 = Role.where({"movie_id" => movie_Batman2["id"]})
 for cast in cast_2
-    title = movie_Batman2["title"]
+    title = movie_Batman2["title"].ljust(30)
     actor_movie = Actor.find_by({"id" => cast["actor_id"]})
-    actor_name = actor_movie["name"]
-    character = cast["character_name"]
+    actor_name = actor_movie["name"].ljust(30)
+    character = cast["character_name"].ljust(30)
     puts "#{title} #{actor_name} #{character}"
 end
 
 cast_3 = Role.where({"movie_id" => movie_Batman3["id"]})
 for cast in cast_3
-    title = movie_Batman3["title"]
+    title = movie_Batman3["title"].ljust(30)
     actor_movie = Actor.find_by({"id" => cast["actor_id"]})
-    actor_name = actor_movie["name"]
-    character = cast["character_name"]
+    actor_name = actor_movie["name"].ljust(30)
+    character = cast["character_name"].ljust(30)
     puts "#{title} #{actor_name} #{character}"
 end
 
